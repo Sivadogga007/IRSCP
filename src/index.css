@@ -1,13 +1,33 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+.card {
+  height: 325px;
+  width: 275px;
+}
+.card__side {
+    height: 325px;
+    width: 275px;
+    transition: all 0.8s ease;
+    position: absolute;
+    -webkit-backface-visibility: hidden;
+   /* We don't want to see the back part of the element. */
+    backface-visibility: hidden;
+   /* We don't want to see the back part of the element. */
+    overflow: hidden;
+   /* The image is overflowing the parent. */
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.card__side--back {
+    transform: rotateY(180deg);
 }
+.card:hover .card__side--back {
+    transform: rotateY(0);
+}
+.card:hover .card__side--front {
+    transform: rotateY(-180deg);
+}
+
